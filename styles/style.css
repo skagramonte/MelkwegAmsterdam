@@ -1,0 +1,144 @@
+
+   @font-face {
+	font-family: 'Melkweg';
+	src: url('../fonts/calibre-medium.woff2') format('woff2'),
+		 url('../fonts/calibre-medium.woff') format('woff'),
+		 url('../fonts/calibre-regular.woff2') format('woff2'),
+		 url('../fonts/calibre-regular.woff') format('woff'),
+		 url('../fonts/melkweg-regular.woff2') format('woff2'),
+		 url('../fonts/melkweg-regular.woff') format('woff');
+	font-weight: normal;
+	font-style: normal;
+  }
+  
+
+  * {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+  }
+  
+  body {
+	font-family: 'Melkweg', Arial, sans-serif;
+	background-color: #000;  
+	color: #fff;
+	line-height: 1.5;
+  }
+  
+
+
+
+  header {
+	text-align: center;
+	padding: 2rem 1rem;
+  }
+  
+  header h1 {
+	font-size: 2rem;
+	font-weight: bold;
+	letter-spacing: 1px;
+	margin-bottom: 0.5rem;
+  }
+  
+  header p {
+	font-size: 0.9rem;
+	text-transform: uppercase;
+	color: #aaa;
+  }
+  
+ 
+
+  header video {
+	width: 100%;
+	max-height: 50vh;
+	object-fit: cover;
+	border-radius: 8px;
+	margin-bottom: 1rem;
+  }
+  
+
+
+  main section {
+	padding: 1rem;
+	border-bottom: 1px solid #222;
+  }
+  
+  article {
+	margin-bottom: 2rem;
+  }
+  
+  article img {
+	width: 100%;
+	height: auto;
+	border-radius: 8px;
+	margin-top: 0.5rem;
+  }
+  
+
+  h2, h3, h4 {
+	font-family: 'Melkweg', sans-serif;
+	font-weight: bold;
+	margin: 0.5rem 0;
+  }
+  
+  time {
+	display: block;
+	font-size: 0.85rem;
+	color: #aaa;
+	margin-top: 0.25rem;
+  }
+  
+  p {
+	font-size: 0.95rem;
+	margin: 0.5rem 0;
+  }
+  
+
+
+  ul {
+	list-style: none;
+	margin-top: 1rem;
+  }
+  
+  ul li {
+	margin-bottom: 1.5rem;
+  }
+  
+
+
+
+  iframe {
+	width: 100%;
+	border: none;
+	border-radius: 12px;
+	margin: 1rem 0;
+  }
+  
+
+
+
+  nav {
+	padding: 1rem;
+	text-align: center;
+  }
+  
+  nav h2 {
+	font-size: 1.5rem;
+	margin-bottom: 1rem;
+  }
+  
+  nav a {
+	color: #fff;
+	text-decoration: none;
+	font-weight: bold;
+  }
+  
+
+  footer {
+	padding: 2rem 1rem;
+	text-align: center;
+	font-size: 0.85rem;
+	color: #888;
+	border-top: 1px solid #222;
+  }
+  
