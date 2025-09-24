@@ -1,144 +1,349 @@
-
+/* FONTS */
    @font-face {
 	font-family: 'Melkweg';
-	src: url('../fonts/calibre-medium.woff2') format('woff2'),
-		 url('../fonts/calibre-medium.woff') format('woff'),
-		 url('../fonts/calibre-regular.woff2') format('woff2'),
-		 url('../fonts/calibre-regular.woff') format('woff'),
-		 url('../fonts/melkweg-regular.woff2') format('woff2'),
-		 url('../fonts/melkweg-regular.woff') format('woff');
+	src: url('../fonts/melkweg-regular.woff2') format('woff2'),
+	     url('../fonts/melkweg-regular.woff') format('woff');
 	font-weight: normal;
 	font-style: normal;
-  }
-  
+}
 
-  * {
+@font-face {
+	font-family: 'Calibre-regular';
+	src: url('../fonts/calibre-regular.woff2') format('woff2'),
+	     url('../fonts/calibre-regular.woff') format('woff');
+	font-weight: normal;
+	font-style: normal;
+}
+
+@font-face {
+	font-family:'Calibre-medium';
+	src: url('../fonts/calibre-medium.woff2') format('woff2'),
+	     url('../fonts/calibre-medium.woff') format('woff');
+	font-weight: 500;
+	font-style: normal;
+}
+
+/* RESET & BASIS */
+* {
 	margin: 0;
 	padding: 0;
 	box-sizing: border-box;
-  }
-  
-  body {
-	font-family: 'Melkweg', Arial, sans-serif;
-	background-color: #000;  
-	color: #fff;
+}
+
+body {
+	font-family: 'Calibre-regular', Arial, sans-serif;
+	display: flex;
+	flex-direction: column;
+	background-color: #fff;
+	color: #000;
 	line-height: 1.5;
-  }
-  
+	padding: 1rem;
+}
 
+main {
+	flex: 1;
+	padding-bottom: 60px; 
+}
 
+section {
+	padding: 1rem 0;
+	border-bottom: 1px solid #222;
+}
 
-  header {
+h2, h3, h4 {
+	font-family: 'Calibre-medium', sans-serif;
+	font-weight: bold;
+	margin: 0.5rem 0;
+}
+
+p {
+	font-size: 0.95rem;
+	margin: 0.5rem 0;
+}
+
+time {
+	display: block;
+	font-size: 0.85rem;
+	color: #aaa;
+	margin-top: 0.25rem;
+}
+
+/*  HEADER*/
+header {
 	text-align: center;
 	padding: 2rem 1rem;
-  }
-  
-  header h1 {
+}
+
+header h1 {
+	font-family: 'Melkweg', sans-serif;
 	font-size: 2rem;
 	font-weight: bold;
 	letter-spacing: 1px;
 	margin-bottom: 0.5rem;
-  }
-  
-  header p {
+}
+
+header p {
 	font-size: 0.9rem;
 	text-transform: uppercase;
 	color: #aaa;
-  }
-  
- 
+}
 
-  header video {
+header video {
 	width: 100%;
 	max-height: 50vh;
 	object-fit: cover;
 	border-radius: 8px;
 	margin-bottom: 1rem;
-  }
-  
+}
 
-
-  main section {
-	padding: 1rem;
-	border-bottom: 1px solid #222;
-  }
-  
-  article {
+/* SECTIES & ARTIKELEN */
+article {
+	font-family: 'Calibre-regular';
 	margin-bottom: 2rem;
-  }
-  
-  article img {
+}
+
+article img {
 	width: 100%;
 	height: auto;
 	border-radius: 8px;
 	margin-top: 0.5rem;
-  }
-  
+}
 
-  h2, h3, h4 {
-	font-family: 'Melkweg', sans-serif;
-	font-weight: bold;
-	margin: 0.5rem 0;
-  }
-  
-  time {
-	display: block;
+/* PROGRAMMA*/
+section h2 {
+	font-family: 'Calibre-regular', sans-serif;
+	font-size: 1.6rem;
+	text-transform: uppercase;
+	letter-spacing: 1.5px;
+	margin-bottom: 0.75rem;
+}
+
+section h3 {
+	display: inline-block;
+	margin: 0 1.25rem 0.75rem 0;
+	padding-bottom: 0.35rem;
 	font-size: 0.85rem;
-	color: #aaa;
-	margin-top: 0.25rem;
-  }
-  
-  p {
-	font-size: 0.95rem;
-	margin: 0.5rem 0;
-  }
-  
+	text-transform: uppercase;
+	color: #777;
+	font-weight: 600;
+}
 
+section h3:first-of-type {
+	color: #000;
+	border-bottom: 2px solid #000;
+}
 
-  ul {
+section ul {
 	list-style: none;
-	margin-top: 1rem;
-  }
-  
-  ul li {
-	margin-bottom: 1.5rem;
-  }
-  
+	margin: 0;
+	padding: 0;
+	font-family: 'Calibre-regular', sans-serif;
+}
 
+section li {
+	padding: 0.9rem 0;
+	border-bottom: 1px solid #e6e6e6;
+}
 
+section li:last-child {
+	border-bottom: none;
+}
 
-  iframe {
+section li article {
+	display: grid;
+	grid-template-columns: 1fr 8rem; 
+	column-gap: 1rem;
+	align-items: center;
+}
+
+section li h4 {
+	margin: 0;
+	grid-column: 1;
+	grid-row: 1;
+	font-size: 1rem;
+	font-weight: 700;
+	text-transform: uppercase;
+	letter-spacing: 0.6px;
+}
+
+section li p {
+	margin: 0.25rem 0 0 0;
+	grid-column: 1;
+	grid-row: 2;
+	font-size: 0.78rem;
+	color: #666;
+}
+
+section li time {
+	grid-column: 2;
+	grid-row: 1 / 3;
+	justify-self: end;
+	align-self: center;
+	font-size: 0.85rem;
+	font-weight: 700;
+	text-transform: uppercase;
+	color: #111;
+}
+
+/* IFRAME*/
+iframe {
 	width: 100%;
 	border: none;
 	border-radius: 12px;
 	margin: 1rem 0;
-  }
-  
+}
 
-
-
-  nav {
+/* NAV*/
+nav {
 	padding: 1rem;
 	text-align: center;
-  }
-  
-  nav h2 {
+}
+
+nav h2 {
 	font-size: 1.5rem;
 	margin-bottom: 1rem;
-  }
-  
-  nav a {
+}
+
+nav a {
 	color: #fff;
 	text-decoration: none;
 	font-weight: bold;
+}
+
+/* FOOTER */
+footer {
+	position: fixed;
+	bottom: 0;
+	left: 0;
+	width: 100%;
+	background: #000;
+	color: #fff;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	padding: 1rem;
+	border-top: 1px solid #222;
+	z-index: 1000;
+}
+
+footer a {
+	color: #fff;
+	text-decoration: none;
+	font-weight: bold;
+	font-size: 1rem;
+}
+
+footer button,
+footer a[aria-label="Zoeken"] {
+	background: none;
+	border: none;
+	color: #fff;
+	font-size: 1.4rem;
+	cursor: pointer;
+}
+
+
+
+/* REGGAE PAGE*/
+
+.reggaepage {
+	background: #000;
+	color: #fff;
+	font-family: 'Calibre-regular', sans-serif;
   }
   
-
-  footer {
+  .reggaepage header {
+	position: relative;
+	text-align: left;
 	padding: 2rem 1rem;
-	text-align: center;
-	font-size: 0.85rem;
-	color: #888;
-	border-top: 1px solid #222;
+  }
+  
+  .reggaepage header video {
+	width: 100%;
+	height: 40vh;
+	object-fit: cover;
+	display: block;
+  }
+  
+  .reggaepage header section {
+	margin-top: 1.5rem;
+  }
+  
+  .reggaepage header h1 {
+	font-family: 'Melkweg';
+	font-size: 2.5rem;
+	text-transform: uppercase;
+	margin: 0 0 1rem 0;
+	border-bottom: 1px solid #444;
+	padding-bottom: 0.5rem;
+  }
+  
+  .reggaepage header p {
+	font-size: 0.9rem;
+	line-height: 1.6;
+	color: #ddd;
+  }
+  
+  /* PROGRAMMA-LIJST */
+  .reggaepage section ul {
+	list-style: none;
+	margin: 2rem 0;
+	padding: 0;
+  }
+  
+  .reggaepage section li {
+	border-bottom: 1px solid #333;
+	padding: 1rem 0;
+  }
+  
+  .reggaepage section li:last-child {
+	border-bottom: none;
+  }
+  
+  .reggaepage section li article {
+	display: grid;
+	grid-template-columns: 6rem 1fr 6rem; 
+	gap: 1rem;
+	align-items: center;
+  }
+  
+  .reggaepage section li time {
+	font-size: 0.8rem;
+	font-weight: bold;
+	color: #fff;
+	text-transform: uppercase;
+  }
+  
+  .reggaepage section li h2 {
+	font-size: 1rem;
+	margin: 0;
+	text-transform: uppercase;
+  }
+  
+  .reggaepage section li p {
+	font-size: 0.75rem;
+	color: #aaa;
+	margin: 0.2rem 0 0;
+  }
+  
+  .reggaepage section li img {
+	width: 6rem;
+	height: 4rem;
+	object-fit: cover;
+	border-radius: 4px;
+  }
+  
+  /* SPOTIFY BLOK */
+  .reggaepage section iframe {
+	width: 100%;
+	border: none;
+	border-radius: 12px;
+	margin: 1.5rem 0;
+  }
+  
+  .reggaepage section p {
+	font-size: 0.9rem;
+	color: #ccc;
+	margin-top: 0.5rem;
   }
   
