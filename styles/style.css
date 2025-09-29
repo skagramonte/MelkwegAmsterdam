@@ -1,8 +1,8 @@
 /* FONTS */
-   @font-face {
+@font-face {
 	font-family: 'Melkweg';
 	src: url('../fonts/melkweg-regular.woff2') format('woff2'),
-	     url('../fonts/melkweg-regular.woff') format('woff');
+		url('../fonts/melkweg-regular.woff') format('woff');
 	font-weight: normal;
 	font-style: normal;
 }
@@ -10,20 +10,20 @@
 @font-face {
 	font-family: 'Calibre-regular';
 	src: url('../fonts/calibre-regular.woff2') format('woff2'),
-	     url('../fonts/calibre-regular.woff') format('woff');
+		url('../fonts/calibre-regular.woff') format('woff');
 	font-weight: normal;
 	font-style: normal;
 }
 
 @font-face {
-	font-family:'Calibre-medium';
+	font-family: 'Calibre-medium';
 	src: url('../fonts/calibre-medium.woff2') format('woff2'),
-	     url('../fonts/calibre-medium.woff') format('woff');
-	font-weight: 500;
+		url('../fonts/calibre-medium.woff') format('woff');
+	font-weight: normal;
 	font-style: normal;
 }
 
-/* RESET & BASIS */
+/* BASIS */
 * {
 	margin: 0;
 	padding: 0;
@@ -36,13 +36,16 @@ body {
 	flex-direction: column;
 	background-color: #fff;
 	color: #000;
-	line-height: 1.5;
-	padding: 1rem;
 }
 
 main {
 	flex: 1;
-	padding-bottom: 60px; 
+	padding-bottom: 60px;
+}
+
+main>section:not(.events) {
+	padding-left: 1rem;
+	padding-right: 1rem;
 }
 
 section {
@@ -50,9 +53,10 @@ section {
 	border-bottom: 1px solid #222;
 }
 
-h2, h3, h4 {
+h2,
+h3,
+h4 {
 	font-family: 'Calibre-medium', sans-serif;
-	font-weight: bold;
 	margin: 0.5rem 0;
 }
 
@@ -62,38 +66,28 @@ p {
 }
 
 time {
+	font-family: 'Melkweg', monospace;
 	display: block;
 	font-size: 0.85rem;
-	color: #aaa;
 	margin-top: 0.25rem;
 }
 
-/*  HEADER*/
+/* HEADER */
 header {
 	text-align: center;
-	padding: 2rem 1rem;
 }
 
 header h1 {
-	font-family: 'Melkweg', sans-serif;
-	font-size: 2rem;
-	font-weight: bold;
+	font-family: 'Melkweg', monospace;
+	font-size: 5rem;
 	letter-spacing: 1px;
-	margin-bottom: 0.5rem;
 }
 
 header p {
-	font-size: 0.9rem;
-	text-transform: uppercase;
-	color: #aaa;
-}
-
-header video {
-	width: 100%;
-	max-height: 50vh;
-	object-fit: cover;
-	border-radius: 8px;
-	margin-bottom: 1rem;
+	font-size: 1.6rem;
+	padding: 10px;
+	text-align: left;
+	color: #000;
 }
 
 /* SECTIES & ARTIKELEN */
@@ -105,27 +99,19 @@ article {
 article img {
 	width: 100%;
 	height: auto;
-	border-radius: 8px;
 	margin-top: 0.5rem;
 }
 
-/* PROGRAMMA*/
-section h2 {
-	font-family: 'Calibre-regular', sans-serif;
-	font-size: 1.6rem;
-	text-transform: uppercase;
-	letter-spacing: 1.5px;
-	margin-bottom: 0.75rem;
+/* PROGRAMMA */
+section:nth-of-type(2)>h2 {
+	font-family: 'Melkweg';
+	font-size: 2.5rem;
 }
 
 section h3 {
 	display: inline-block;
 	margin: 0 1.25rem 0.75rem 0;
-	padding-bottom: 0.35rem;
 	font-size: 0.85rem;
-	text-transform: uppercase;
-	color: #777;
-	font-weight: 600;
 }
 
 section h3:first-of-type {
@@ -141,7 +127,6 @@ section ul {
 }
 
 section li {
-	padding: 0.9rem 0;
 	border-bottom: 1px solid #e6e6e6;
 }
 
@@ -151,7 +136,7 @@ section li:last-child {
 
 section li article {
 	display: grid;
-	grid-template-columns: 1fr 8rem; 
+	grid-template-columns: 1fr 8rem;
 	column-gap: 1rem;
 	align-items: center;
 }
@@ -161,7 +146,6 @@ section li h4 {
 	grid-column: 1;
 	grid-row: 1;
 	font-size: 1rem;
-	font-weight: 700;
 	text-transform: uppercase;
 	letter-spacing: 0.6px;
 }
@@ -180,12 +164,201 @@ section li time {
 	justify-self: end;
 	align-self: center;
 	font-size: 0.85rem;
-	font-weight: 700;
 	text-transform: uppercase;
 	color: #111;
 }
 
-/* IFRAME*/
+/* HIGHLIGHT */
+main>section:nth-of-type(3) h2 {
+	font-size: 1rem;
+}
+
+main>section:nth-of-type(3) h3 {
+	font-family: 'Calibre-regular';
+	font-size: 1.5rem;
+	font-weight: 100;
+	border-bottom: none;
+}
+
+main>section:nth-of-type(3) time {
+	font-size: 19px;
+}
+
+
+
+/* AGENDA */
+main>section:nth-of-type(4) h2 {
+	font-family: 'Melkweg', monospace;
+	font-size: 2.7rem;
+	padding: 0;
+	margin: 0;
+}
+
+/* YOUNG CREATIVE */
+main>section:last-of-type h2 {
+	font-family: 'Melkweg', monospace;
+	font-size: 2.8rem;
+}
+
+main>section:last-of-type p {
+	font-size: 1.1rem;
+}
+
+/* EVENTS GRID */
+.events {
+	display: grid;
+	grid-template-columns: repeat(10, 1fr);
+	height: max-content;
+	gap: 28px;
+	background: #000;
+	width: 100%;
+	margin: 0;
+	padding: 0;
+}
+
+.events article {
+	position: relative;
+	overflow: hidden;
+	z-index: 2;
+}
+
+.events article img {
+	width: 100%;
+	height: 100%;
+	object-fit: cover;
+	display: block;
+}
+
+.events article h2,
+.events article time {
+	position: absolute;
+	left: 0.75rem;
+	bottom: 1rem;
+	color: #fff;
+	font-size: 1rem;
+	text-shadow: 0 2px 6px rgba(0, 0, 0, 0.7);
+}
+
+.events article time {
+	bottom: 2rem;
+	font-size: 0.8rem;
+	font-family: 'Melkweg', monospace;
+	text-transform: uppercase;
+}
+
+/* titels onder foto */
+body:not(.reggaepage) .events article h2,
+body:not(.reggaepage) .events article time {
+	position: static;
+	display: block;
+	margin: 0.5rem;
+	color: #000;
+	text-shadow: none;
+	z-index: 3;
+}
+
+body:not(.reggaepage) .events article {
+	position: relative;
+	overflow: visible;
+}
+
+/* Achtergrondplaatjes */
+.events>img {
+	width: 100%;
+	height: 100%;
+	object-fit: cover;
+	opacity: 0.2;
+	z-index: 1;
+	position: relative;
+}
+
+/* GRID POSITIES */
+.events article:nth-of-type(1) {
+	grid-column: 3 / 9;
+}
+
+.events article:nth-of-type(2) {
+	grid-column: 1 / 7;
+	grid-row: 2;
+}
+
+.events article:nth-of-type(3) {
+	grid-column: 5 / 11;
+	grid-row: 3;
+}
+
+.events article:nth-of-type(4) {
+	grid-column: 3 / 10;
+	grid-row: 4;
+}
+
+.events article:nth-of-type(5) {
+	grid-column: 1 / 7;
+	grid-row: 5;
+}
+
+.events article:nth-of-type(6) {
+	grid-column: 5 / 11;
+	grid-row: 6;
+}
+
+.events article:nth-of-type(7) {
+	grid-column: 3 / 9;
+	grid-row: 7;
+}
+
+.events article:nth-of-type(8) {
+	grid-column: 1 / 6;
+	grid-row: 8;
+}
+
+.events article:nth-of-type(9) {
+	grid-column: 5 / 11;
+	grid-row: 9;
+}
+
+.events article:nth-of-type(10) {
+	grid-column: 3 / 9;
+	grid-row: 10;
+}
+
+/* Achtergrond plaatjes per positie */
+.events>img:nth-of-type(1) {
+	grid-column: 7 / 11;
+	grid-row: 2;
+}
+
+.events>img:nth-of-type(2) {
+	grid-column: 2 / 7;
+	grid-row: 3 / 4;
+}
+
+.events>img:nth-of-type(3) {
+	grid-column: 6 / 11;
+	grid-row: 5;
+}
+
+.events>img:nth-of-type(4) {
+	grid-column: 1 / 4;
+	grid-row: 6;
+}
+
+.events>img:nth-of-type(5) {
+	grid-column: 5 / 10;
+	grid-row: 8;
+}
+
+.events>img:nth-of-type(6) {
+	grid-column: 2 / 6;
+	grid-row: 9;
+}
+
+.events>img:nth-of-type(7) {
+	grid-column: 4 / 9;
+	grid-row: 11;
+}
+
+/* IFRAME */
 iframe {
 	width: 100%;
 	border: none;
@@ -193,157 +366,263 @@ iframe {
 	margin: 1rem 0;
 }
 
-/* NAV*/
-nav {
-	padding: 1rem;
-	text-align: center;
-}
-
-nav h2 {
-	font-size: 1.5rem;
-	margin-bottom: 1rem;
-}
-
-nav a {
-	color: #fff;
-	text-decoration: none;
-	font-weight: bold;
-}
-
 /* FOOTER */
 footer {
+	font-family: 'Melkweg';
 	position: fixed;
 	bottom: 0;
 	left: 0;
 	width: 100%;
 	background: #000;
 	color: #fff;
-	display: flex;
-	justify-content: space-between;
+	display: grid;
+	grid-template-columns: 1fr auto auto;
 	align-items: center;
-	padding: 1rem;
+	padding: 0.75rem 1rem;
 	border-top: 1px solid #222;
 	z-index: 1000;
 }
 
 footer a {
+	font-size: 27px;
+	letter-spacing: 3px;
+	font-weight: 100;
 	color: #fff;
 	text-decoration: none;
-	font-weight: bold;
-	font-size: 1rem;
 }
 
-footer button,
-footer a[aria-label="Zoeken"] {
+footer button {
 	background: none;
 	border: none;
-	color: #fff;
-	font-size: 1.4rem;
 	cursor: pointer;
+	padding: 0 0 0 1rem;
+	display: flex;
+	align-items: center;
+	justify-content: center;
 }
 
+footer button img {
+	width: 24px;
+	height: 24px;
+}
 
-
-/* REGGAE PAGE*/
-
+/* REGGAE PAGE */
 .reggaepage {
 	background: #000;
 	color: #fff;
 	font-family: 'Calibre-regular', sans-serif;
-  }
-  
-  .reggaepage header {
+	margin: 0;
+	padding: 0;
+}
+
+/* HEADER REGGAE */
+.reggaepage header {
 	position: relative;
 	text-align: left;
-	padding: 2rem 1rem;
-  }
-  
-  .reggaepage header video {
+}
+
+.reggaepage header video {
 	width: 100%;
-	height: 40vh;
+	height: 60vh;
 	object-fit: cover;
-	display: block;
-  }
-  
-  .reggaepage header section {
-	margin-top: 1.5rem;
-  }
-  
-  .reggaepage header h1 {
-	font-family: 'Melkweg';
-	font-size: 2.5rem;
-	text-transform: uppercase;
-	margin: 0 0 1rem 0;
-	border-bottom: 1px solid #444;
+}
+
+.reggaepage header section {
+	max-width: 60rem;
+	margin: 2rem auto;
+	padding: 0 1rem;
+}
+
+.reggaepage header h1 {
+	font-family: 'Melkweg', sans-serif;
+	font-size: 5.9rem;
+	margin: auto;
+	border-bottom: 1px solid #ccc;
+	display: inline-block;
 	padding-bottom: 0.5rem;
-  }
-  
-  .reggaepage header p {
-	font-size: 0.9rem;
-	line-height: 1.6;
+	letter-spacing: 2px;
+}
+
+.reggaepage header p {
+	font-family: 'Calibre-medium';
+	font-size: 1rem;
 	color: #ddd;
-  }
-  
-  /* PROGRAMMA-LIJST */
-  .reggaepage section ul {
+	transform: none;
+}
+
+/* PROGRAMMA REGGAE */
+.reggaepage section h2 {
+	display: none;
+}
+
+.reggaepage section ul {
 	list-style: none;
-	margin: 2rem 0;
-	padding: 0;
-  }
-  
-  .reggaepage section li {
+	margin: 1rem;
+}
+
+.reggaepage section li {
 	border-bottom: 1px solid #333;
-	padding: 1rem 0;
-  }
-  
-  .reggaepage section li:last-child {
+}
+
+.reggaepage section li:last-child {
 	border-bottom: none;
-  }
-  
-  .reggaepage section li article {
+}
+
+.reggaepage section li article {
 	display: grid;
-	grid-template-columns: 6rem 1fr 6rem; 
-	gap: 1rem;
-	align-items: center;
-  }
-  
-  .reggaepage section li time {
-	font-size: 0.8rem;
-	font-weight: bold;
+	grid-template-columns: repeat(10, 1fr);
+	grid-template-rows: auto auto auto;
+	column-gap: 1rem;
+	align-items: start;
+	padding-bottom: 0.5rem;
+
+}
+
+.reggaepage section li time {
+	grid-column: 1 / 7;
+	grid-row: 1;
+	font-size: 26px;
 	color: #fff;
 	text-transform: uppercase;
-  }
-  
-  .reggaepage section li h2 {
+	letter-spacing: 1px;
+	margin-bottom: 0.3rem;
+	border-bottom: 1px solid #fff;
+}
+
+.reggaepage section li h3 {
+	grid-column: 1 / 7;
+	grid-row: 2;
 	font-size: 1rem;
+	color: #fff;
 	margin: 0;
 	text-transform: uppercase;
-  }
-  
-  .reggaepage section li p {
-	font-size: 0.75rem;
-	color: #aaa;
-	margin: 0.2rem 0 0;
-  }
-  
-  .reggaepage section li img {
-	width: 6rem;
-	height: 4rem;
-	object-fit: cover;
-	border-radius: 4px;
-  }
-  
-  /* SPOTIFY BLOK */
-  .reggaepage section iframe {
-	width: 100%;
-	border: none;
-	border-radius: 12px;
-	margin: 1.5rem 0;
-  }
-  
-  .reggaepage section p {
+}
+
+.reggaepage section li p {
+	grid-column: 1 / 7;
+	grid-row: 3;
 	font-size: 0.9rem;
-	color: #ccc;
+	color: #aaa;
+	margin: 0.3rem 0 0;
+}
+
+.reggaepage section li img {
+	grid-column: 10 / 11;
+	grid-row: 1 / 4;
+	width: 5rem;
+	justify-self: end;
+	align-self: start;
+}
+
+/* SPOTIFY REGGAE */
+.reggaepage section iframe {
+	width: 100%;
+	border-radius: 10px;
+	margin: 10px;
+}
+
+.reggaepage section:nth-child(3) p {
+	font-size: 20px;
+	color: #fff;
+	margin: 0 10px;
+}
+
+/* FOTO GRID REGGAE */
+.reggaepage section:nth-of-type(3) article {
+	display: grid;
+	grid-template-columns: repeat(10, 1fr);
+	grid-template-rows: repeat(10);
+	gap: 0.5rem;
+	max-width: 1000px;
+}
+
+.reggaepage section:nth-of-type(3) img {
+	width: 100%;
+	height: 100%;
+	object-fit: cover;
+	border-radius: 8px;
+}
+
+/* Foto posities */
+.reggaepage section:nth-of-type(3) img:nth-of-type(1) {
+	grid-column: 4 / 10;
+	grid-row: 1 / 5;
+}
+
+.reggaepage section:nth-of-type(3) img:nth-of-type(2) {
+	grid-column: 1 / 8;
+	grid-row: 4 / 8;
+}
+
+.reggaepage section:nth-of-type(3) img:nth-of-type(3) {
+	grid-column: 1 / 7;
+	grid-row: 7 / 12;
+}
+
+.reggaepage section:nth-of-type(3) img:nth-of-type(4) {
+	grid-column: 6 / 11;
+	grid-row: 7 / 12;
+}
+
+.reggaepage section:nth-of-type(3) img:nth-of-type(5) {
+	grid-column: 3 / 10;
+	grid-row: 12 / 12;
+}
+
+/* NIEUWSBRIEF REGGAE */
+.reggaepage section:nth-of-type(4) {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	padding: 6rem 1rem;
+}
+
+.reggaepage section:nth-of-type(4) article {
+	background: #fff;
+	color: #000;
+	max-width: 32rem;
+	padding: 2rem;
+	box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25);
+	text-align: left;
+}
+
+.reggaepage section:nth-of-type(4) article h3 {
+	font-family: 'Calibre-regular';
+	font-size: 2rem;
+	margin-bottom: 1rem;
+}
+
+.reggaepage section:nth-of-type(4) article p {
+	font-size: 1rem;
+	margin-bottom: 1.5rem;
+	color: #333;
+}
+
+.reggaepage section:nth-of-type(4) article form {
+	display: flex;
+}
+
+/*  tekst onder foto */
+body:not(.reggaepage) .events article {
+	position: static;
+	overflow: visible;
+
+}
+
+body:not(.reggaepage) .events article h2 {
+	font-family: 'Melkweg', monospace;
+	position: static;
+	color: #fff;
+	text-shadow: none;
 	margin-top: 0.5rem;
-  }
-  
+	
+}
+
+
+body:not(.reggaepage) .events article time {
+	font-family: 'Melkweg', monospace;
+	position: static;
+	color: #fff;
+	text-shadow: none;
+	margin-top: 0.5rem;
+}

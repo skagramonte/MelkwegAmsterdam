@@ -1,2 +1,2 @@
 // JavaScript Document
-console.log("hi");
+console.log("Do you think flowers know how pretty they are?");

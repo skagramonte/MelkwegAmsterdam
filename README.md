@@ -41,10 +41,12 @@ Nb. Door *open* toe te voegen aan een *details* element kun je deze standaard op
   #### Screenshot(s) van de eerste pagina (small screen): 
   hier de naam van de pagina  
   <img src="readme-images/homepage.jpg" width="375px" alt="Home pagina">
+  In de screenshot zijn niet alle plaatjes te zien (meerdere screenshots geprobeert te maken maar het kwam er niet op)
 
   #### Screenshot(s) van de tweede pagina (small screen):
   hier de naam van de pagina  
   <img src="readme-images/reggaepage.jpg" width="375px" alt="reggae pagina">
+  zelfde als de home pagina, dingen zoals bijv. de spotify playlist staan niet in de screenshot maar wel op de pagina 
  
 </details>
 
