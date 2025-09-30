@@ -24,6 +24,14 @@
 }
 
 /* BASIS */
+:root {
+	--base-font-size: 100%;
+}
+
+html {
+	font-size: var(--base-font-size);
+}
+
 * {
 	margin: 0;
 	padding: 0;
@@ -139,6 +147,15 @@ section li article {
 	grid-template-columns: 1fr 8rem;
 	column-gap: 1rem;
 	align-items: center;
+
+	/* Hover-effect toegevoegd */
+	transition: transform 0.2s ease;
+	cursor: pointer;
+}
+
+section li article:hover {
+	transform: scale(1.05);
+	z-index: 2;
 }
 
 section li h4 {
@@ -184,14 +201,10 @@ main>section:nth-of-type(3) time {
 	font-size: 19px;
 }
 
-
-
 /* AGENDA */
 main>section:nth-of-type(4) h2 {
 	font-family: 'Melkweg', monospace;
 	font-size: 2.7rem;
-	padding: 0;
-	margin: 0;
 }
 
 /* YOUNG CREATIVE */
@@ -229,12 +242,14 @@ main>section:last-of-type p {
 	display: block;
 }
 
+/* TITELS EN DATA ALTID WIT EN MELKWEG FONT */
 .events article h2,
 .events article time {
+	font-family: 'Melkweg', monospace;
+	color: #fff;
 	position: absolute;
 	left: 0.75rem;
 	bottom: 1rem;
-	color: #fff;
 	font-size: 1rem;
 	text-shadow: 0 2px 6px rgba(0, 0, 0, 0.7);
 }
@@ -242,7 +257,6 @@ main>section:last-of-type p {
 .events article time {
 	bottom: 2rem;
 	font-size: 0.8rem;
-	font-family: 'Melkweg', monospace;
 	text-transform: uppercase;
 }
 
@@ -252,7 +266,7 @@ body:not(.reggaepage) .events article time {
 	position: static;
 	display: block;
 	margin: 0.5rem;
-	color: #000;
+	color: #fff; /* altijd wit */
 	text-shadow: none;
 	z-index: 3;
 }
@@ -273,90 +287,25 @@ body:not(.reggaepage) .events article {
 }
 
 /* GRID POSITIES */
-.events article:nth-of-type(1) {
-	grid-column: 3 / 9;
-}
-
-.events article:nth-of-type(2) {
-	grid-column: 1 / 7;
-	grid-row: 2;
-}
-
-.events article:nth-of-type(3) {
-	grid-column: 5 / 11;
-	grid-row: 3;
-}
-
-.events article:nth-of-type(4) {
-	grid-column: 3 / 10;
-	grid-row: 4;
-}
-
-.events article:nth-of-type(5) {
-	grid-column: 1 / 7;
-	grid-row: 5;
-}
-
-.events article:nth-of-type(6) {
-	grid-column: 5 / 11;
-	grid-row: 6;
-}
-
-.events article:nth-of-type(7) {
-	grid-column: 3 / 9;
-	grid-row: 7;
-}
-
-.events article:nth-of-type(8) {
-	grid-column: 1 / 6;
-	grid-row: 8;
-}
-
-.events article:nth-of-type(9) {
-	grid-column: 5 / 11;
-	grid-row: 9;
-}
-
-.events article:nth-of-type(10) {
-	grid-column: 3 / 9;
-	grid-row: 10;
-}
+.events article:nth-of-type(1) { grid-column: 3 / 9; }
+.events article:nth-of-type(2) { grid-column: 1 / 7; grid-row: 2; }
+.events article:nth-of-type(3) { grid-column: 5 / 11; grid-row: 3; }
+.events article:nth-of-type(4) { grid-column: 3 / 10; grid-row: 4; }
+.events article:nth-of-type(5) { grid-column: 1 / 7; grid-row: 5; }
+.events article:nth-of-type(6) { grid-column: 5 / 11; grid-row: 6; }
+.events article:nth-of-type(7) { grid-column: 3 / 9; grid-row: 7; }
+.events article:nth-of-type(8) { grid-column: 1 / 6; grid-row: 8; }
+.events article:nth-of-type(9) { grid-column: 5 / 11; grid-row: 9; }
+.events article:nth-of-type(10) { grid-column: 3 / 9; grid-row: 10; }
 
 /* Achtergrond plaatjes per positie */
-.events>img:nth-of-type(1) {
-	grid-column: 7 / 11;
-	grid-row: 2;
-}
-
-.events>img:nth-of-type(2) {
-	grid-column: 2 / 7;
-	grid-row: 3 / 4;
-}
-
-.events>img:nth-of-type(3) {
-	grid-column: 6 / 11;
-	grid-row: 5;
-}
-
-.events>img:nth-of-type(4) {
-	grid-column: 1 / 4;
-	grid-row: 6;
-}
-
-.events>img:nth-of-type(5) {
-	grid-column: 5 / 10;
-	grid-row: 8;
-}
-
-.events>img:nth-of-type(6) {
-	grid-column: 2 / 6;
-	grid-row: 9;
-}
-
-.events>img:nth-of-type(7) {
-	grid-column: 4 / 9;
-	grid-row: 11;
-}
+.events>img:nth-of-type(1) { grid-column: 7 / 11; grid-row: 2; }
+.events>img:nth-of-type(2) { grid-column: 2 / 7; grid-row: 3 / 4; }
+.events>img:nth-of-type(3) { grid-column: 6 / 11; grid-row: 5; }
+.events>img:nth-of-type(4) { grid-column: 1 / 4; grid-row: 6; }
+.events>img:nth-of-type(5) { grid-column: 5 / 10; grid-row: 8; }
+.events>img:nth-of-type(6) { grid-column: 2 / 6; grid-row: 9; }
+.events>img:nth-of-type(7) { grid-column: 4 / 9; grid-row: 11; }
 
 /* IFRAME */
 iframe {
@@ -368,57 +317,67 @@ iframe {
 
 /* FOOTER */
 footer {
-	font-family: 'Melkweg';
 	position: fixed;
 	bottom: 0;
 	left: 0;
 	width: 100%;
-	background: #000;
+	background-color: #000;
 	color: #fff;
-	display: grid;
-	grid-template-columns: 1fr auto auto;
+	display: flex;
 	align-items: center;
-	padding: 0.75rem 1rem;
-	border-top: 1px solid #222;
+	justify-content: flex-start;
+	gap: 12px;
+	padding: 12px 16px;
+	font-size: 16px;
 	z-index: 1000;
 }
 
+footer button,
 footer a {
-	font-size: 27px;
-	letter-spacing: 3px;
-	font-weight: 100;
-	color: #fff;
-	text-decoration: none;
-}
-
-footer button {
+	font-family: 'Melkweg';
+	font-size: 28px;
 	background: none;
 	border: none;
 	cursor: pointer;
-	padding: 0 0 0 1rem;
 	display: flex;
 	align-items: center;
 	justify-content: center;
+	color: #fff;
 }
 
-footer button img {
+footer button img,
+footer a img {
 	width: 24px;
 	height: 24px;
+	align-content: flex-end;
 }
 
-/* REGGAE PAGE */
-.reggaepage {
-	background: #000;
-	color: #fff;
-	font-family: 'Calibre-regular', sans-serif;
-	margin: 0;
-	padding: 0;
+footer button+button {
+	margin-left: 0.5rem;
 }
+
+/* ========================
+   FORCE EVENTS TEXT TO ALWAYS WHITE + MELKWEG FONT
+   ======================== */
+.events article h2,
+.events article time,
+body:not(.reggaepage) .events article h2,
+body:not(.reggaepage) .events article time {
+	font-family: 'Melkweg', monospace !important;
+	color: #fff !important;
+}
+
 
 /* HEADER REGGAE */
 .reggaepage header {
 	position: relative;
 	text-align: left;
+}
+
+.reggaepage header .video-wrapper {
+	position: relative;
+	/* context voor play button */
+	display: block;
 }
 
 .reggaepage header video {
@@ -447,7 +406,6 @@ footer button img {
 	font-family: 'Calibre-medium';
 	font-size: 1rem;
 	color: #ddd;
-	transform: none;
 }
 
 /* PROGRAMMA REGGAE */
@@ -474,8 +432,6 @@ footer button img {
 	grid-template-rows: auto auto auto;
 	column-gap: 1rem;
 	align-items: start;
-	padding-bottom: 0.5rem;
-
 }
 
 .reggaepage section li time {
@@ -543,7 +499,7 @@ footer button img {
 	border-radius: 8px;
 }
 
-/* Foto posities */
+/* Foto posities behouden */
 .reggaepage section:nth-of-type(3) img:nth-of-type(1) {
 	grid-column: 4 / 10;
 	grid-row: 1 / 5;
@@ -602,27 +558,26 @@ footer button img {
 	display: flex;
 }
 
-/*  tekst onder foto */
-body:not(.reggaepage) .events article {
-	position: static;
-	overflow: visible;
-
+/* PLAY/PAUSE BUTTON IN VIDEO */
+.reggaepage header .video-wrapper button {
+	position: absolute;
+	bottom: 0.5rem;
+	right: 0.5rem;
+	width: 36px;
+	height: 36px;
+	border-radius: 50%;
+	background-color: rgba(0, 0, 0, 0.5);
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	cursor: pointer;
+	z-index: 10;
+	border: none;
+	padding: 0;
 }
 
-body:not(.reggaepage) .events article h2 {
-	font-family: 'Melkweg', monospace;
-	position: static;
-	color: #fff;
-	text-shadow: none;
-	margin-top: 0.5rem;
-	
-}
-
-
-body:not(.reggaepage) .events article time {
-	font-family: 'Melkweg', monospace;
-	position: static;
-	color: #fff;
-	text-shadow: none;
-	margin-top: 0.5rem;
+.reggaepage header .video-wrapper button img {
+	width: 12px;
+	height: 12px;
+	display: block;
 }

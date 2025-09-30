@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="64" height="64" aria-hidden="true">
+  <defs>
+    <!-- mask gebruikt om een maansikkel te "snijden" -->
+    <mask id="m-crescent">
+      <rect width="100%" height="100%" fill="white"></rect>
+      <!-- deze cirkel snijdt in de grote cirkel -->
+      <circle cx="40" cy="24" r="16" fill="black"></circle>
+    </mask>
+  </defs>
+
+  <!-- basiscirkel wordt gemaskeerd zodat er een sikkel overblijft -->
+  <circle cx="32" cy="32" r="18" fill="#ffffff" mask="url(#m-crescent)"></circle>
+</svg>
