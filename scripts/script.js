@@ -1,27 +1,8 @@
-// Font sizing
-let fontStep = 0; 
-
-// Thema
-const body = document.body;
-const themeToggle = document.querySelector(".theme-toggle");
-const themeIcon = themeToggle?.querySelector("img");
-const savedTheme = localStorage.getItem("theme");
-
-document.querySelector("#fontToggle")?.addEventListener("click", cycleFontSize);
-
-// Video & audio
-const videoWrapper = document.querySelector(".video-wrapper");
-const video = videoWrapper?.querySelector("video");
-const audio = videoWrapper?.querySelector("audio");
-const videoBtn = videoWrapper?.querySelector("button");
-const videoBtnImg = videoBtn?.querySelector("img");
-
-
-
-// FUNCTIES
-
-
+// ======================
 // FONT SIZING
+// ======================
+let fontStep = 0; // 0 = normaal, 1 = 150%
+
 function cycleFontSize() {
     const root = document.documentElement;
     if (fontStep === 0) {
@@ -33,20 +14,15 @@ function cycleFontSize() {
     }
 }
 
+// ======================
 // DARK AND LIGHT
-function updateThemeUI() {
-    const dark = body.classList.contains("dark-theme");
+// ======================
+const body = document.body;
+const themeToggle = document.querySelector(".theme-toggle");
+const themeIcon = themeToggle?.querySelector("img");
 
-    if (themeIcon) {
-        themeIcon.src = dark ? "images/maan.svg" : "images/zon.svg";
-        themeIcon.alt = dark ? "Switch to light theme" : "Switch to dark theme";
-    }
-}
-
-
-
-// INIT THEMA
-
+// opgeslagen voorkeur
+const savedTheme = localStorage.getItem("theme");
 if (savedTheme) {
     body.classList.add(savedTheme);
 } else {
@@ -56,9 +32,54 @@ if (savedTheme) {
         body.classList.add("light-theme");
     }
 }
+
+function updateThemeUI() {
+    const dark = body.classList.contains("dark-theme");
+
+    if (!body.classList.contains('reggaepage')) {
+        document.querySelectorAll('header h1, header p').forEach(el => {
+            el.style.color = dark ? "#fff" : "#000";
+        });
+
+        document.querySelectorAll('.events article h2').forEach(el => {
+            el.style.color = "#fff";
+        });
+        document.querySelectorAll('.events article time').forEach(el => {
+            el.style.color = dark ? "#fff" : "#000";
+        });
+
+        document.querySelectorAll('main > section:not(.events) *:not(h2, h3, h4, img, time)').forEach(el => {
+            el.style.color = dark ? "#fff" : "#000";
+        });
+        document.querySelectorAll('main > section:not(.events) h2, main > section:not(.events) h3, main > section:not(.events) h4').forEach(el => {
+            el.style.color = dark ? "#fff" : "#000";
+        });
+
+        document.querySelectorAll('main > section:not(.events) time').forEach(el => {
+            el.style.color = dark ? "#fff" : "#000";
+        });
+    }
+
+    if (body.classList.contains('reggaepage')) {
+        document.querySelectorAll('main *:not(section:nth-of-type(4) article) :not(img):not(video):not(iframe)').forEach(el => el.style.color = dark ? "#fff" : "#000"); 
+        const newsletter = document.querySelector('.reggaepage section:nth-of-type(4) article');
+        if (newsletter) {
+            newsletter.style.color = "#000";
+            newsletter.querySelectorAll('*').forEach(el => el.style.color = "#000");
+        }
+    }
+
+    body.style.backgroundColor = dark ? "#000" : "#fff";
+    body.style.color = dark ? "#fff" : "#000";
+
+    if (themeIcon) {
+        themeIcon.src = dark ? "images/maan.svg" : "images/zon.svg";
+        themeIcon.alt = dark ? "Switch to light theme" : "Switch to dark theme";
+    }
+}
+
 updateThemeUI();
 
-// Toggle knop
 if (themeToggle) {
     themeToggle.addEventListener("click", () => {
         if (body.classList.contains("light-theme")) {
@@ -74,30 +95,36 @@ if (themeToggle) {
     });
 }
 
+// ======================
+// VIDEO & AUDIO PLAY/PAUSE
+// ======================
 
+// Selecteer video, audio en knop in header
+const videoWrapper = document.querySelector(".video-wrapper");
+const video = videoWrapper.querySelector("video");
+const audio = videoWrapper.querySelector("audio");
+const videoBtn = videoWrapper.querySelector("button");
+const videoBtnImg = videoBtn.querySelector("img");
 
-// VIDEO & AUDIO
+// Start audio automatisch bij paginalaad
+audio.play().catch(() => {
+    // fallback voor browsers die autoplay blokkeren
+    audio.muted = true;
+    audio.play();
+});
 
-if (video && audio && videoBtn && videoBtnImg) {
-    audio.play().catch(() => {
-        // fallback voor browsers die autoplay blokkeren
-        audio.muted = true;
+// initial icon check
+videoBtnImg.src = video.paused ? "images/playbutton.svg" : "images/pausebutton.svg";
+
+// klik event: video en audio synchroon
+videoBtn.addEventListener("click", () => {
+    if (video.paused) {
+        video.play();
         audio.play();
-    });
-
-    // initial icon check
-    videoBtnImg.src = video.paused ? "images/playbutton.svg" : "images/pausebutton.svg";
-
-    // video en audio synchroon
-    videoBtn.addEventListener("click", () => {
-        if (video.paused) {
-            video.play();
-            audio.play();
-            videoBtnImg.src = "images/pausebutton.svg";
-        } else {
-            video.pause();
-            audio.pause();
-            videoBtnImg.src = "images/playbutton.svg";
-        }
-    });
-}
+        videoBtnImg.src = "images/pausebutton.svg";
+    } else {
+        video.pause();
+        audio.pause();
+        videoBtnImg.src = "images/playbutton.svg";
+    }
+});
