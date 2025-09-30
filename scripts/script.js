@@ -7,7 +7,6 @@ const themeToggle = document.querySelector(".theme-toggle");
 const themeIcon = themeToggle?.querySelector("img");
 const savedTheme = localStorage.getItem("theme");
 
-// Font size toggle button (ipv inline onclick in HTML)
 document.querySelector("#fontToggle")?.addEventListener("click", cycleFontSize);
 
 // Video & audio
@@ -18,9 +17,9 @@ const videoBtn = videoWrapper?.querySelector("button");
 const videoBtnImg = videoBtn?.querySelector("img");
 
 
-// ========================
+
 // FUNCTIES
-// ========================
+
 
 // FONT SIZING
 function cycleFontSize() {
@@ -45,9 +44,9 @@ function updateThemeUI() {
 }
 
 
-// ========================
+
 // INIT THEMA
-// ========================
+
 if (savedTheme) {
     body.classList.add(savedTheme);
 } else {
@@ -76,9 +75,9 @@ if (themeToggle) {
 }
 
 
-// ========================
+
 // VIDEO & AUDIO
-// ========================
+
 if (video && audio && videoBtn && videoBtnImg) {
     audio.play().catch(() => {
         // fallback voor browsers die autoplay blokkeren
@@ -89,7 +88,7 @@ if (video && audio && videoBtn && videoBtnImg) {
     // initial icon check
     videoBtnImg.src = video.paused ? "images/playbutton.svg" : "images/pausebutton.svg";
 
-    // klik event: video en audio synchroon
+    // video en audio synchroon
     videoBtn.addEventListener("click", () => {
         if (video.paused) {
             video.play();
